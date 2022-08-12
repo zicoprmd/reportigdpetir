@@ -24,7 +24,7 @@ st.dataframe(df_januari)
 bar_chart = px.bar(df_januari,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
-                    color_discrete_sequence= ['#35CC96']*len(df_januari),
+                    color_discrete_sequence=['#35CC96']*len(df_januari),
                     template='plotly_white')
 
 st.plotly_chart(bar_chart)
@@ -35,3 +35,21 @@ pie_chart = px.pie(df_januari,
                     names='Diagnosa 1')
 
 st.plotly_chart(pie_chart)
+
+### --- BAR CHARTS BPJS
+bar_bpjs = px.bar(df_januari,
+                    title='Grafik Asuransi Pasien',
+                    x='Asuransi',
+                    color_discrete_sequence=['#12CC96']*len(df_januari),
+                    template='plotly_white')
+
+st.plotly_chart(bar_bpjs)
+
+### --- BAR CHARTS KELURAHAN
+bar_kelurahan = px.bar(df_januari,
+                    title='Grafik Tempat Tinggal Pasien',
+                    x='Kelurahan',
+                    color_discrete_sequence=['#12CC12']*len(df_januari),
+                    template='plotly_white')
+
+st.plotly_chart(bar_kelurahan)
