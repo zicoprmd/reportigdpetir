@@ -5,13 +5,6 @@ import base64
 
 st.set_page_config(page_title='Laporan IGD', page_icon='⛈️', layout='centered', initial_sidebar_state='collapsed')
 
-@st.experimental_memo
-def get_img_as_base64(file):
-    with open(file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-img = get_img_as_base64('./img/image2.jpg')
 
 page_bg_img = f'''
 <style>
@@ -28,10 +21,6 @@ background-size: cover;
 right: 2rem;
 }}
 
-[data-testid='stSidebar'] > div:first-child {{
-    background-image: url('data:image/png;base64,{img}');
-    background-size: cover;
-}}
 </style>
 '''
 
