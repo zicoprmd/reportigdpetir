@@ -17,8 +17,8 @@ df = pd.read_excel(excel_file,
                     header=4,
                     nrows=38,
                     decimal='.')
-
         
+col1, col2 = st.columns([2, 2])
 
 ### --- HORIZONTAL BAR
 selected = option_menu(
@@ -41,7 +41,7 @@ if selected == 'Sasaran Keswa':
                     width=1000,
                     height=600,
                     labels={'value':'Total Penduduk'})
-
+    
     st.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS LAKI-LAKI
@@ -55,7 +55,7 @@ if selected == 'Sasaran Keswa':
                     width=1000,
                     height=600,
                     labels={'LAKI-LAKI':'Penduduk Lak-laki'})
-
+    
     st.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS PEREMPUAN
@@ -72,6 +72,15 @@ if selected == 'Sasaran Keswa':
 
     st.plotly_chart(bar_chart)
 
+    ### --- SCATTER
+    scatter_chart = px.scatter(df,
+                                x='LAKI-LAKI',
+                                y='PRP',
+                                color='PUSKESMAS',
+                                trendline='ols',
+                                template='seaborn')
+    
+    st.plotly_chart(scatter_chart)
 if selected == 'ODGJ':
     st.title(f'Laporan {selected}')
 

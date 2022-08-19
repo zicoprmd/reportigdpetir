@@ -38,16 +38,16 @@ sheet_name = '2022'
 
 df = pd.read_excel(excel_file,
                     sheet_name=sheet_name,
-                    usecols='A:B',
+                    usecols='A:D',
                     nrows=13)
 
 ### --- BAR CHARTS
 bar_chart = px.bar(df,
                     title='IGD 2022',
                     x='Bulan',
-                    y='Total',
-                    color_discrete_sequence=['#C492A1']*len(df),
-                    template='plotly_white')
+                    y=['BPJS', 'Umum'],
+                    template='seaborn',
+                    labels={'value':'Total'})
 
 st.plotly_chart(bar_chart)
 
