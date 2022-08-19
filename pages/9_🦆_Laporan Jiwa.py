@@ -18,7 +18,6 @@ df = pd.read_excel(excel_file,
                     nrows=38,
                     decimal='.')
 
-st.dataframe(df)
         
 
 ### --- HORIZONTAL BAR

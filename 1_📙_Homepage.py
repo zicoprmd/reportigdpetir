@@ -25,6 +25,7 @@ right: 2rem;
 '''
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
 st.title('IGD ⚡')
 st.sidebar.header('Main Page')
 st.sidebar.success('Scroll sidebar disini!')
@@ -32,7 +33,7 @@ st.sidebar.success('Scroll sidebar disini!')
 
 
 ### --- LOAD DATAFRAME
-excel_file = 'IGD2022.xlsx'
+excel_file = 'excel/IGD2022.xlsx'
 sheet_name = '2022'
 
 df = pd.read_excel(excel_file,

@@ -10,7 +10,7 @@ st.subheader('read excel easily with graphic')
 
 
 ### --- LOAD DATAFRAME
-excel_file = 'pages/IGD.xlsx'
+excel_file = 'excel/IGD.xlsx'
 sheet_name = 'JANUARI'
 
 df_januari = pd.read_excel(excel_file,
@@ -31,10 +31,24 @@ bar_chart = px.bar(df_januari,
 
 st.plotly_chart(bar_chart)
 
+### --- BAR CHARTS
+bar_chart = px.bar(df_januari,
+                    title='Grafik Penyakit IGD',
+                    x='Diagnosa 1',
+                    color_discrete_sequence=['#35CC96']*len(df_januari),
+                    template='plotly_white',
+                    width=1200,
+                    height=700,
+                    labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
+
+st.plotly_chart(bar_chart)
+
 ### --- PIE CHARTS
 pie_chart = px.pie(df_januari,
                     title='Presentasi Penyakit IGD',
-                    names='Diagnosa 1')
+                    names='Diagnosa 1',
+                    width=1000,
+                    height=600,)
 
 st.plotly_chart(pie_chart)
 
@@ -49,9 +63,22 @@ st.plotly_chart(bar_bpjs)
 
 ### --- BAR CHARTS KELURAHAN
 bar_kelurahan = px.bar(df_januari,
-                    title='Grafik Tempat Tinggal Pasien',
+                    title='Grafik Tempat Asuransi Pasien',
                     x='Kelurahan',
                     color_discrete_sequence=['#12CC12']*len(df_januari),
                     template='plotly_white')
 
 st.plotly_chart(bar_kelurahan)
+
+### --- BAR CHARTS KELURAHAN
+bar_kelurahan1 = px.bar(df_januari,
+                    title='Grafik Asuransi terhadap Tempat Tinggal Pasien',
+                    x='Asuransi',
+                    barmode='group',
+                    color='Kelurahan',
+                    template='plotly_white',
+                    width=1000,
+                    height=500,
+                    labels={'count':'Jumlah'})
+
+st.plotly_chart(bar_kelurahan1)

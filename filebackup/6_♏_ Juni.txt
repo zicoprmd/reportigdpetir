@@ -1,0 +1,73 @@
+import pandas as pd
+import streamlit as st
+import plotly.express as px
+
+st.title('Laporan IGD Januari')
+
+st.header('Juni 2022')
+st.subheader('read excel easily with graphic')
+
+
+### --- LOAD DATAFRAME
+excel_file = 'excel/IGD.xlsx'
+sheet_name = 'JUNI'
+
+df_juni = pd.read_excel(excel_file,
+                            sheet_name=sheet_name,
+                            usecols='A:CA',
+                            header=24,
+                            nrows=50)
+
+st.dataframe(df_juni)
+
+### --- BAR CHARTS
+    bar_chart = px.bar(df_juni,
+                    title='Grafik Penyakit IGD',
+                    x='Diagnosa 1',
+                    color_discrete_sequence= ['#559896']*len(df_juni),
+                    template='plotly_white',
+                    width=1200,
+                    height=700,
+                    labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
+
+    st.plotly_chart(bar_chart)
+
+    ### --- PIE CHARTS
+    pie_chart = px.pie(df_juni,
+                    title='Presentasi Penyakit IGD',
+                    names='Diagnosa 1',
+                    width=1000,
+                    height=600,)
+
+    st.plotly_chart(pie_chart)
+
+    ### --- BAR CHARTS BPJS
+    bar_bpjs = px.bar(df_juni,
+                    title='Grafik Asuransi Pasien',
+                    x='Asuransi',
+                    color_discrete_sequence=['#12CC96']*len(df_juni),
+                    template='plotly_white')
+
+    st.plotly_chart(bar_bpjs)
+
+    ### --- BAR CHARTS KELURAHAN
+    bar_kelurahan = px.bar(df_juni,
+                    title='Grafik Tempat Asuransi Pasien',
+                    x='Kelurahan',
+                    color_discrete_sequence=['#12CC12']*len(df_juni),
+                    template='plotly_white')
+
+    st.plotly_chart(bar_kelurahan)
+
+    ### --- BAR CHARTS KELURAHAN
+    bar_kelurahan1 = px.bar(df_juni,
+                    title='Grafik Asuransi terhadap Tempat Tinggal Pasien',
+                    x='Asuransi',
+                    barmode='group',
+                    color='Kelurahan',
+                    template='plotly_white',
+                    width=1000,
+                    height=500,
+                    labels={'count':'Jumlah'})
+
+    st.plotly_chart(bar_kelurahan1)
