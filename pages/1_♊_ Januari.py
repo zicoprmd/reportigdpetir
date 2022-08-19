@@ -1,3 +1,4 @@
+from unicodedata import decimal
 import pandas as pd
 import streamlit as st
 import plotly.express as px
@@ -16,7 +17,8 @@ df_januari = pd.read_excel(excel_file,
                             sheet_name=sheet_name,
                             usecols='A:CA',
                             header=24,
-                            nrows=29)
+                            nrows=29,
+                            decimal='.')
 
 st.dataframe(df_januari)
 
