@@ -116,17 +116,18 @@ if selected == 'Januari':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_januari,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence=['#35CC96']*len(df_januari),
                     template='plotly_white',
-                    width=1200,
+                    width=1000,
                     height=700,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_januari,
@@ -139,23 +140,24 @@ if selected == 'Januari':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'Februari':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_februari,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence= ['#65C096']*len(df_februari),
                     template='plotly_white',
-                    width=1200,
+                    width=1000,
                     height=700,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_februari,
@@ -168,23 +170,24 @@ if selected == 'Februari':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'Maret':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_maret,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence= ['#655796']*len(df_maret),
                     template='plotly_white',
-                    width=1200,
+                    width=1000,
                     height=700,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_maret,
@@ -197,23 +200,24 @@ if selected == 'Maret':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'April':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_april,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence= ['#F5C786']*len(df_april),
                     template='plotly_white',
-                    width=1200,
+                    width=1000,
                     height=700,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_april,
@@ -226,23 +230,24 @@ if selected == 'April':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'Mei':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_mei,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence= ['#354396']*len(df_mei),
                     template='plotly_white',
-                    width=1200,
+                    width=1000,
                     height=700,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_mei,
@@ -255,23 +260,24 @@ if selected == 'Mei':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'Juni':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_juni,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence= ['#559896']*len(df_juni),
                     template='plotly_white',
-                    width=1200,
-                    height=700,
+                    width=1000,
+                    height=1000,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_juni,
@@ -284,23 +290,24 @@ if selected == 'Juni':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'Juli':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
 
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
     ### --- BAR CHARTS
     bar_chart = px.bar(df_juli,
                     title='Grafik Penyakit IGD',
                     x='Diagnosa 1',
                     color_discrete_sequence= ['#355F22']*len(df_juli),
                     template='plotly_white',
-                    width=1200,
+                    width=1000,
                     height=1000,
                     labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
 
-    st.plotly_chart(bar_chart)
+    col2.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS KELURAHAN
     bar_kelurahan1 = px.bar(df_juli,
@@ -313,9 +320,25 @@ if selected == 'Juli':
                     height=500,
                     labels={'count':'Jumlah'})
 
-    st.plotly_chart(bar_kelurahan1)
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'Agustus':
+    st.title(f'Laporan IGD {selected}')
+    st.subheader(f'{selected} 2022')
+
+if selected == 'September':
+    st.title(f'Laporan IGD {selected}')
+    st.subheader(f'{selected} 2022')
+
+if selected == 'Oktober':
+    st.title(f'Laporan IGD {selected}')
+    st.subheader(f'{selected} 2022')
+
+if selected == 'November':
+    st.title(f'Laporan IGD {selected}')
+    st.subheader(f'{selected} 2022')
+
+if selected == 'Desember':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
     
