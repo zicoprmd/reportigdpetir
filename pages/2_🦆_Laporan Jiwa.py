@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title='Jiwa 2022',
                     page_icon=':shark:',
-                    layout='centered')
+                    layout='wide')
 
 ### --- LOAD DATAFRAM JIWA
 excel_file = 'excel/LAP_KESWA_PKM_PETIR_2022.xlsx'
@@ -18,7 +18,7 @@ df = pd.read_excel(excel_file,
                     nrows=38,
                     decimal='.')
         
-col1, col2 = st.columns([2, 2])
+
 
 ### --- HORIZONTAL BAR
 selected = option_menu(
@@ -32,17 +32,30 @@ if selected == 'Sasaran Keswa':
     st.title(f'Laporan {selected}')
     st.subheader('Jumlah Penduduk Proyeksi 2022')
 
+    col1, col2 = st.columns([2, 2])
     ### --- BAR CHARTS TOTAL
     bar_chart = px.bar(df,
                     x='PUSKESMAS',
                     y=['LAKI-LAKI', 'PRP'],
                     barmode='group',
                     template='plotly_white',
-                    width=1000,
+                    width=900,
                     height=600,
                     labels={'value':'Total Penduduk'})
     
-    st.plotly_chart(bar_chart)
+    col1.plotly_chart(bar_chart)
+    
+    ### --- SCATTER
+    scatter_chart = px.scatter(df,
+                                x='LAKI-LAKI',
+                                y='PRP',
+                                color='PUSKESMAS',
+                                trendline='ols',
+                                template='seaborn')
+    
+    col2.plotly_chart(scatter_chart)
+
+    col1, col2 = st.columns([2, 2])
 
     ### --- BAR CHARTS LAKI-LAKI
     bar_chart = px.bar(df,
@@ -52,11 +65,9 @@ if selected == 'Sasaran Keswa':
                     color='LAKI-LAKI',
                     color_discrete_sequence=['#568648']*len(df),
                     template='plotly_white',
-                    width=1000,
-                    height=600,
                     labels={'LAKI-LAKI':'Penduduk Lak-laki'})
-    
-    st.plotly_chart(bar_chart)
+    col1.header('Penduduk Pria')
+    col1.plotly_chart(bar_chart)
 
     ### --- BAR CHARTS PEREMPUAN
     bar_chart = px.bar(df,
@@ -66,21 +77,11 @@ if selected == 'Sasaran Keswa':
                     color='PRP',
                     color_discrete_sequence=['#568648']*len(df),
                     template='plotly_white',
-                    width=1000,
-                    height=600,
                     labels={'PRP':'Penduduk Perempuan'})
+    col2.header('Penduduk Wanita')
+    col2.plotly_chart(bar_chart)
 
-    st.plotly_chart(bar_chart)
-
-    ### --- SCATTER
-    scatter_chart = px.scatter(df,
-                                x='LAKI-LAKI',
-                                y='PRP',
-                                color='PUSKESMAS',
-                                trendline='ols',
-                                template='seaborn')
     
-    st.plotly_chart(scatter_chart)
 if selected == 'ODGJ':
     st.title(f'Laporan {selected}')
 
