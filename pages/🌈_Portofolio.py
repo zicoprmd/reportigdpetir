@@ -2,6 +2,7 @@ import streamlit as st # pip install streamlit
 from streamlit_option_menu import option_menu
 import requests
 
+from streamlit_lottie import st_lottie
 
 
 st.set_page_config(page_title='Portofolio', page_icon='🌈', layout='centered', initial_sidebar_state='collapsed')
