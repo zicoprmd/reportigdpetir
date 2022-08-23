@@ -1,9 +1,18 @@
 import streamlit as st # pip install streamlit
 from streamlit_option_menu import option_menu
-import base64
+import requests
+from streamlit_lottie import st_lottie
 
 st.set_page_config(page_title='Portofolio', page_icon='🌈', layout='centered', initial_sidebar_state='collapsed')
 
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+### ---- LOAD ASSETS ----
+lottie_coding = load_lottieurl("https://assets1.lottiefiles.com/packages/lf20_4kx2q32n.json")
 
 page_bg_img = f'''
 <style>
@@ -41,10 +50,34 @@ selected = option_menu(
 
 if selected == "Home":
     st.title(f"{selected}")
-    st.subheader('Hi, I am Zico Permadi, MD :wave:')
-    st.title('A Data Analyst From Tangerang')
-    st.write('I am passionate about finding ways to use Python to be more efficient')
-    st.write('[Learn More >>](https://zicoprmd.github.io/)')
+    with st.container():
+        st.subheader('Hi, I am Zico Permadi, MD :wave:')
+        st.title('A Data Analyst From Tangerang')
+        st.write('I am passionate about finding ways to use Python to be more efficient and effective')
+        st.write('[Learn More >>](https://zicoprmd.github.io/)')
+        ### --- WHAT I DO ---
+    with st.container():
+        left_col, right_col = st.columns([2,1])
+        with left_col:
+            st.header('What I do')
+            st.write('##')
+            st.write(
+                '''
+                On my Youtube channel I am creating tutorials for people who:
+                - are looking for a way to leverage the power of Python in their day-to-day work.
+                - are struggling with repetitive tasks in Excel and are looing for a way to use Python.
+                - want to learn Data Analysis & Data Science to perform meaningful and impactful analyses.
+                - are working with Excel and founf themselves thinking - "there has to be a better way."
+                
+                If this sounds interesting to you, consider subscribing and turning on the notifications, so you don't miss any content.
+                '''
+            )
+            st.write()
+        with right_col:
+            st.write('##')
+            st.write('##')
+            st.write('##')
+            st_lottie(lottie_coding, height=300, key='coding')
 if selected == "Projects":
     st.title(f"{selected}")
 if selected == "Contact":
