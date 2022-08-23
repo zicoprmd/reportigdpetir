@@ -1,3 +1,4 @@
+from unicodedata import decimal
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -7,9 +8,10 @@ st.set_page_config(page_title='Jiwa 2022',
                     page_icon=':shark:',
                     layout='wide')
 
-### --- LOAD DATAFRAM JIWA
+### --- LOAD DATAFRAME JIWA
 excel_file = 'excel/LAP_KESWA_PKM_PETIR_2022.xlsx'
 sheet_name = 'Sasaran 2022 KESWA PKM FIX'
+sheet_odgj = 'ODGJ pkm'
 
 df = pd.read_excel(excel_file,
                     sheet_name=sheet_name,
@@ -17,6 +19,13 @@ df = pd.read_excel(excel_file,
                     header=4,
                     nrows=38,
                     decimal='.')
+
+df_odgj = pd.read_excel(excel_file,
+                        sheet_name=sheet_odgj,
+                        usecols='B:P',
+                        header=12,
+                        nrows=60,
+                        decimal='.')
         
 
 
@@ -84,7 +93,11 @@ if selected == 'Sasaran Keswa':
     
 if selected == 'ODGJ':
     st.title(f'Laporan {selected}')
-
+    st.subheader('Pasien Jiwa Petir')
+    
 if selected == 'SRQ':
     st.title(f'Laporan {selected}')
+    st.subheader('Self-Reporting Questionnaire')
+    st.write('Petunjuk: Bacalah petunjuk ini seluruhnya sebelum mulai mengisi. Pertanyaan berikut berhubungan dengan masalah yang mungkin mengganggu Anda selama 30 hari terakhir. Apabila Anda menganggap pertanyaan itu berlaku bagi Anda dan Anda mengalami masalah yang disebutkan dalam 30 hari terakhir, berilah tanda pada kolom 1. Sebaliknya, Apabila Anda menganggap pertanyaan itu tidak berlaku bagi Anda dan Anda tidak mengalami masalah yang disebutkan dalam 30 hari terakhir, berilah tanda pada kolom 0. Jika Anda tidak yakin tentang jawabannya, berilah jawaban yang paling sesuai di antara 1 dan 0. Kami tegaskan bahwa, jawaban Anda bersifat rahasia, dan akan digunakan hanya untuk membantu pemecahan masalah Anda.')
+    st.write('[SRQ FORM](https://docs.google.com/forms/d/e/1FAIpQLSf9sm-r5j9h1dmd4hNui4-JhfJWzCWTHvcBH75IXnhLyFxS7A/viewform)')
 
