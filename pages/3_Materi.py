@@ -6,12 +6,14 @@ from PIL import Image
 st.set_page_config(page_title='Materi',
                     layout='centered')
 
-### ----- LOAD ASSETS
+### ----- LOAD ASSETS IMAGE
 img_TBC = Image.open('img/TBC_care.png')
+img_FIGO = Image.open('img/FIGO_CHART.jpg')
 
+### ---- MATERI SAMPING
 st.sidebar.header('Pilih Materi')
 option = st.sidebar.selectbox(label='klik disini',
-                                options=['Tuberculosis', 'Rujukan Jiwa'],
+                                options=['Tuberculosis', 'Rujukan Jiwa', 'FIGO CHART'],
                                 index=0)
 
 if option == 'Tuberculosis':
@@ -47,3 +49,15 @@ if option == 'Rujukan Jiwa':
            )
     
     st.write('[Hubungi Whatsapp Layanan Sejiwa](https://api.whatsapp.com/send/?phone=%2B628111533327&text&type=phone_number&app_absent=0)')
+
+if option == 'FIGO CHART':
+    st.image(img_FIGO)
+    st.write('[FIGO CHART](https://brtyl-my.sharepoint.com/:b:/g/personal/zicoprmd_apps365_work/EfNZmV25gp1Kopr6UCPRFqsB0vl3Hc_eGPV22PgrKk_C5Q?e=rW0gug)')
+    ### ---- TOMBOL DOWNLOAD FIGO CHART
+    with open("download/figo_chart/FIGO_CHART.pdf", "rb") as file:
+     btn = st.download_button(
+             label="Download Figo Chart",
+             data=file,
+             file_name="FIGO_CHART.pdf",
+             mime="text/plain"
+           )

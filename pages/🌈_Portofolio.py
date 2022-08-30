@@ -42,12 +42,11 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 # 2. horizontal bar
 selected = option_menu(
         menu_title=None, #required
-        options=['Home', 'Projects', 'Contact', 'Gallery'], #required
+        options=['Home', 'Projects', 'Contact', 'Gallery', 'My File'], #required
         icons=['house', 'book', 'envelope', 'camera'], #optional
         menu_icon='cast', #optional
         default_index=0, #optional
-        orientation='horizontal',
-        
+        orientation='horizontal',        
     )
 
 if selected == "Home":
@@ -104,3 +103,6 @@ def local_css(file_name):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 local_css('style/style.css')
+
+if selected == "My File":
+    st.write('[ACLS dr zico permadi](https://pvpmail-my.sharepoint.com/:b:/g/personal/novianil_oficeoriginal_id/EdvCTPrB9blNgiFgJr0IOdwB5wGhX13JkdRcbarLQsBseg?e=1IU4d8)')

@@ -3,5 +3,5 @@ Pillow==9.2.0
 plotly==5.9.0
 streamlit==1.10.0
 streamlit-option-menu
-openpyxl==3.0.10
 streamlit-lottie
+openpyxl==3.0.10
