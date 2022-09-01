@@ -8,6 +8,8 @@ st.set_page_config(page_title='Laporan IGD', page_icon='⛈️', layout='centere
 
 page_bg_img = f'''
 <style>
+#MainMenu {{visibility: hidden;}}
+footer {{visibility: hidden;}}
 [data-testid="stAppViewContainer"] {{
 background-image: url('https://images.unsplash.com/photo-1660756010411-be7aed1b88cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2050&q=80');
 background-size: cover;
