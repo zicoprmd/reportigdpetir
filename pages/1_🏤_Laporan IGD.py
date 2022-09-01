@@ -5,7 +5,7 @@ import plotly.express as px
 from streamlit_option_menu import option_menu
 
 st.set_page_config(page_title='IGD 2022',
-                    page_icon=':hospital:',
+                    page_icon='🏤',
                     layout='wide')
 
 page_bg_img = f'''
@@ -107,7 +107,7 @@ df_agustus = pd.read_excel(excel_file,
                             sheet_name=sheet_name7,
                             usecols='A:CA',
                             header=24,
-                            nrows=90)
+                            nrows=100)
 ###################### END DATAFRAME
 
 

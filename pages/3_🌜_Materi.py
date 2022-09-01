@@ -4,6 +4,7 @@ import plotly.express as px
 from PIL import Image
 
 st.set_page_config(page_title='Materi',
+                    page_icon='🌜',
                     layout='centered')
 
 ### ----- LOAD ASSETS IMAGE
