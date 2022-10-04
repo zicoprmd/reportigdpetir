@@ -10,6 +10,8 @@ st.set_page_config(page_title='IGD 2022',
 
 page_bg_img = f'''
 <style>
+#MainMenu {{visibility: hidden;}}
+footer {{visibility: hidden;}}
 [data-testid="stAppViewContainer"] {{
 background-image: url('https://images.unsplash.com/photo-1659574087501-92ef4aa7b2d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80');
 background-size: cover;

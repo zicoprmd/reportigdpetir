@@ -95,6 +95,19 @@ if option == 'Tuberculosis':
            )
 if option == 'Rujukan Jiwa':
     st.title(f'Download Form {option}')
+    
+    
+    st.subheader('[SEJIWA LOGIN](https://sejiwa.rsjsh.co.id/login)')
+    st.write('[Hubungi Whatsapp Layanan Sejiwa](https://api.whatsapp.com/send/?phone=%2B628111533327&text&type=phone_number&app_absent=0)')
+    st.write('##')
+    st.write(
+        '''
+            untuk melakukan rujukan pasien jiwa ke RSJ siapkan dokumen :
+            - KTP atau Kartu keluarga
+            - BPJS
+            - FORM dari Puskesmas dalam bentuk PDF kirim ke whatsapp layanan sejiwa
+        '''
+    )
     ### ---- TOMBOL DOWNLOAD FORM RUJUKAN
     with open("download/Surat rujuk ke rsj (contoh nama).docx", "rb") as file:
      btn = st.download_button(
@@ -103,9 +116,6 @@ if option == 'Rujukan Jiwa':
              file_name="Surat rujuk ke rsj (contoh nama).docx",
              mime="text/plain"
            )
-    
-    st.write('[Hubungi Whatsapp Layanan Sejiwa](https://api.whatsapp.com/send/?phone=%2B628111533327&text&type=phone_number&app_absent=0)')
-
 if option == 'Figo Chart':
     st.image(img_FIGO)
     ### ----- st.write('[Figo Chart](https://pvpmail-my.sharepoint.com/:b:/g/personal/novianil_oficeoriginal_id/EWrkPIe0DxFPq8K1BDxhHXABg2VCl3M-xlSiw9gJ2bwAJg?e=YrVDNN)')

@@ -8,6 +8,27 @@ st.set_page_config(page_title='Jiwa 2022',
                     page_icon='🦆',
                     layout='wide')
 
+page_bg_img = f'''
+<style>
+#MainMenu {{visibility: hidden;}}
+footer {{visibility: hidden;}}
+[data-testid="stAppViewContainer"] {{
+background-size: cover;
+}}
+
+[data-testid='stHeader'] {{
+    background-color: rgba(0, 0, 0, 0);
+}}
+
+[data-testid='stToolbar'] {{
+right: 2rem;
+}}
+
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 ### --- LOAD DATAFRAME JIWA
 excel_file = 'excel/LAP_KESWA_PKM_PETIR_2022.xlsx'
 sheet_name = 'Sasaran 2022 KESWA PKM FIX'
