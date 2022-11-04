@@ -120,6 +120,16 @@ df_september = pd.read_excel(excel_file,
                             usecols='A:CA',
                             header=24,
                             nrows=150)
+
+### --- LOAD DATAFRAME OKTOBER
+
+sheet_name9 = 'OKTOBER'
+
+df_oktober = pd.read_excel(excel_file,
+                            sheet_name=sheet_name9,
+                            usecols='A:CA',
+                            header=24,
+                            nrows=120)
 ###################### END DATAFRAME
 
 
@@ -407,6 +417,32 @@ if selected == 'September':
 if selected == 'Oktober':
     st.title(f'Laporan IGD {selected}')
     st.subheader(f'{selected} 2022')
+
+    col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
+    ### --- BAR CHARTS
+    bar_chart = px.bar(df_oktober,
+                    title='Grafik Penyakit IGD',
+                    x='Diagnosa 1',
+                    color_discrete_sequence= ['#C2175B']*len(df_juli),
+                    template='plotly_white',
+                    width=1000,
+                    height=1000,
+                    labels={'count':'Jumlah', 'Diagnosa 1':'Nama Penyakit'})
+
+    col2.plotly_chart(bar_chart)
+
+    ### --- BAR CHARTS KELURAHAN
+    bar_kelurahan1 = px.bar(df_oktober,
+                    title='Grafik Asuransi terhadap Tempat Tinggal Pasien',
+                    x='Asuransi',
+                    barmode='group',
+                    color='Kelurahan',
+                    template='plotly_white',
+                    width=1000,
+                    height=500,
+                    labels={'count':'Jumlah'})
+
+    col2.plotly_chart(bar_kelurahan1)
 
 if selected == 'November':
     st.title(f'Laporan IGD {selected}')
