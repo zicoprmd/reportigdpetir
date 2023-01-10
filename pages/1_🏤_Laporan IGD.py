@@ -160,7 +160,7 @@ selected = option_menu(
     options=['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'],
     icons=['1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle', '1-circle'],
     menu_icon='cast',
-    default_index=10,
+    default_index=11,
     orientation='horizontal',
 )
 
