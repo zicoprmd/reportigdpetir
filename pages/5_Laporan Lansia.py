@@ -9,7 +9,6 @@ page_bg_img = f'''
 #MainMenu {{visibility: hidden;}}
 footer {{visibility: hidden;}}
 [data-testid="stAppViewContainer"] {{
-backgroudn-image: url('')
 background-size: cover;
 }}
 
